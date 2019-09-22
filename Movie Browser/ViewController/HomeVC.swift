@@ -79,18 +79,14 @@ class HomeVC: UIViewController , UICollectionViewDelegate, UICollectionViewDataS
         cell.lblMovieTitle.text = arrayMoviesList[indexPath.row].original_title
         cell.imageMovies.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/original/\(arrayMoviesList[indexPath.row].image)"), placeholderImage: UIImage(named: "placeholder.png"))
         cell.imageMovies.contentMode = .scaleToFill
-        if total_pages <= 61 {
+        if pagination <= total_pages {
             if arrayMoviesList.count - 1 == indexPath.row {
                 pagination = pagination + 1
                 MoviesAPI(page: pagination)
             }
         } else {
-            
+            print("Out")
         }
-        
-        
-       
-        
         return cell
     }
     
